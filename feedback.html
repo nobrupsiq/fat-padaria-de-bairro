@@ -1,171 +1,259 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Feedback – Padaria do Bairro</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css"/>
-  <link rel="stylesheet" href="forms.css"/>
-</head>
-<body>
-
-  <header class="navbar" id="navbar">
-    <div class="container nav-inner">
-      <a href="index.html" class="logo">
-        <span class="logo-icon">🍞</span>
-        <div>
-          <span class="logo-name">Padaria do Bairro</span>
-          <span class="logo-since">desde 1987</span>
-        </div>
-      </a>
-      <nav class="nav-links" id="navLinks">
-        <a href="index.html">Início</a>
-        <a href="pedidos.html">Pedidos</a>
-        <a href="feedback.html" class="nav-ativo">Feedback</a>
-        <a href="cadastro.html">Cadastro</a>
-        <a href="contato.html">Contato</a>
-      </nav>
-      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
-    </div>
-  </header>
-
-  <main class="form-page">
-    <div class="container">
-
-      <div class="form-page-header">
-        <a href="index.html" class="btn-voltar">← Voltar ao site</a>
-        <span class="section-tag">sua opinião vale muito</span>
-        <h1>Feedback & Avaliação</h1>
-        <p>Nos ajude a melhorar. Sua avaliação leva menos de 2 minutos!</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback – Padaria do Bairro</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <header class="navbar" id="navbar">
+      <div class="container nav-inner">
+        <a href="index.html" class="logo">
+          <span class="logo-icon">🍞</span>
+          <div>
+            <span class="logo-name">Padaria do Bairro</span>
+            <span class="logo-since">desde 1987</span>
+          </div>
+        </a>
+        <nav class="nav-links" id="navLinks">
+          <a href="index.html">Início</a>
+          <a href="pedidos.html">Pedidos</a>
+          <a href="feedback.html" class="nav-ativo">Feedback</a>
+          <a href="cadastro.html">Cadastro</a>
+          <a href="contato.html">Contato</a>
+        </nav>
+        <button class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
       </div>
+    </header>
 
-      <form class="form-card form-card-wide" id="formFeedback" novalidate>
-
-        <div class="form-section-title">⭐ Avalie sua experiência</div>
-
-        <div class="campo-grupo">
-          <label>Nota geral *</label>
-          <div class="estrelas" id="estrelasGeral">
-            <span data-val="1">★</span>
-            <span data-val="2">★</span>
-            <span data-val="3">★</span>
-            <span data-val="4">★</span>
-            <span data-val="5">★</span>
-          </div>
-          <input type="hidden" id="notaGeral" name="notaGeral"/>
-          <span class="erro" id="erroNotaGeral"></span>
+    <main class="form-page">
+      <div class="container">
+        <div class="form-page-header">
+          <a href="index.html" class="btn-voltar">← Voltar ao site</a>
+          <span class="section-tag">sua opinião vale muito</span>
+          <h1>Feedback & Avaliação</h1>
+          <p>Nos ajude a melhorar. Sua avaliação leva menos de 2 minutos!</p>
         </div>
 
-        <div class="campo-linha-dupla">
+        <form class="form-card form-card-wide" id="formFeedback" novalidate>
+          <div class="form-section-title">⭐ Avalie sua experiência</div>
+
           <div class="campo-grupo">
-            <label>Qualidade dos produtos *</label>
-            <div class="estrelas" id="estrelasQualidade">
-              <span data-val="1">★</span><span data-val="2">★</span>
-              <span data-val="3">★</span><span data-val="4">★</span><span data-val="5">★</span>
+            <label>Nota geral *</label>
+            <div class="estrelas" id="estrelasGeral">
+              <span data-val="1">★</span>
+              <span data-val="2">★</span>
+              <span data-val="3">★</span>
+              <span data-val="4">★</span>
+              <span data-val="5">★</span>
             </div>
-            <input type="hidden" id="notaQualidade" name="notaQualidade"/>
-            <span class="erro" id="erroNotaQualidade"></span>
+            <input type="hidden" id="notaGeral" name="notaGeral" />
+            <span class="erro" id="erroNotaGeral"></span>
           </div>
+
+          <div class="campo-linha-dupla">
+            <div class="campo-grupo">
+              <label>Qualidade dos produtos *</label>
+              <div class="estrelas" id="estrelasQualidade">
+                <span data-val="1">★</span><span data-val="2">★</span>
+                <span data-val="3">★</span><span data-val="4">★</span
+                ><span data-val="5">★</span>
+              </div>
+              <input type="hidden" id="notaQualidade" name="notaQualidade" />
+              <span class="erro" id="erroNotaQualidade"></span>
+            </div>
+            <div class="campo-grupo">
+              <label>Atendimento *</label>
+              <div class="estrelas" id="estrelasAtendimento">
+                <span data-val="1">★</span><span data-val="2">★</span>
+                <span data-val="3">★</span><span data-val="4">★</span
+                ><span data-val="5">★</span>
+              </div>
+              <input
+                type="hidden"
+                id="notaAtendimento"
+                name="notaAtendimento"
+              />
+              <span class="erro" id="erroNotaAtendimento"></span>
+            </div>
+          </div>
+
+          <div class="form-section-title" style="margin-top: 1.5rem">
+            💬 Conte mais
+          </div>
+
           <div class="campo-grupo">
-            <label>Atendimento *</label>
-            <div class="estrelas" id="estrelasAtendimento">
-              <span data-val="1">★</span><span data-val="2">★</span>
-              <span data-val="3">★</span><span data-val="4">★</span><span data-val="5">★</span>
+            <label for="nomeFeedback">Nome (opcional)</label>
+            <input
+              type="text"
+              id="nomeFeedback"
+              name="nomeFeedback"
+              placeholder="Como quer ser chamado(a)?"
+            />
+          </div>
+
+          <div class="campo-grupo">
+            <label>O que você mais gostou? (pode marcar vários)</label>
+            <div class="check-grupo">
+              <label class="label-check"
+                ><input type="checkbox" name="gostou" value="pao" /> 🍞
+                Qualidade do pão</label
+              >
+              <label class="label-check"
+                ><input type="checkbox" name="gostou" value="atendimento" /> 😊
+                Atendimento</label
+              >
+              <label class="label-check"
+                ><input type="checkbox" name="gostou" value="preco" /> 💰 Preço
+                justo</label
+              >
+              <label class="label-check"
+                ><input type="checkbox" name="gostou" value="limpeza" /> ✨
+                Limpeza do ambiente</label
+              >
+              <label class="label-check"
+                ><input type="checkbox" name="gostou" value="variedade" /> 🎯
+                Variedade de produtos</label
+              >
+              <label class="label-check"
+                ><input type="checkbox" name="gostou" value="horario" /> ⏰
+                Horário de funcionamento</label
+              >
             </div>
-            <input type="hidden" id="notaAtendimento" name="notaAtendimento"/>
-            <span class="erro" id="erroNotaAtendimento"></span>
           </div>
-        </div>
 
-        <div class="form-section-title" style="margin-top:1.5rem">💬 Conte mais</div>
-
-        <div class="campo-grupo">
-          <label for="nomeFeedback">Nome (opcional)</label>
-          <input type="text" id="nomeFeedback" name="nomeFeedback" placeholder="Como quer ser chamado(a)?"/>
-        </div>
-
-        <div class="campo-grupo">
-          <label>O que você mais gostou? (pode marcar vários)</label>
-          <div class="check-grupo">
-            <label class="label-check"><input type="checkbox" name="gostou" value="pao"/> 🍞 Qualidade do pão</label>
-            <label class="label-check"><input type="checkbox" name="gostou" value="atendimento"/> 😊 Atendimento</label>
-            <label class="label-check"><input type="checkbox" name="gostou" value="preco"/> 💰 Preço justo</label>
-            <label class="label-check"><input type="checkbox" name="gostou" value="limpeza"/> ✨ Limpeza do ambiente</label>
-            <label class="label-check"><input type="checkbox" name="gostou" value="variedade"/> 🎯 Variedade de produtos</label>
-            <label class="label-check"><input type="checkbox" name="gostou" value="horario"/> ⏰ Horário de funcionamento</label>
+          <div class="campo-grupo">
+            <label for="comentario">Comentário livre *</label>
+            <textarea
+              id="comentario"
+              name="comentario"
+              rows="4"
+              placeholder="Compartilhe sua experiência..."
+              required
+              minlength="10"
+            ></textarea>
+            <span class="char-count" id="charCount">0 / 300</span>
+            <span class="erro" id="erroComentario"></span>
           </div>
-        </div>
 
-        <div class="campo-grupo">
-          <label for="comentario">Comentário livre *</label>
-          <textarea id="comentario" name="comentario" rows="4" placeholder="Compartilhe sua experiência..." required minlength="10"></textarea>
-          <span class="char-count" id="charCount">0 / 300</span>
-          <span class="erro" id="erroComentario"></span>
-        </div>
-
-        <div class="campo-grupo">
-          <label>Você voltaria?</label>
-          <div class="radio-grupo">
-            <label class="label-radio"><input type="radio" name="voltaria" value="sim"/> Com certeza! ❤️</label>
-            <label class="label-radio"><input type="radio" name="voltaria" value="talvez"/> Talvez</label>
-            <label class="label-radio"><input type="radio" name="voltaria" value="nao"/> Não</label>
+          <div class="campo-grupo">
+            <label>Você voltaria?</label>
+            <div class="radio-grupo">
+              <label class="label-radio"
+                ><input type="radio" name="voltaria" value="sim" /> Com certeza!
+                ❤️</label
+              >
+              <label class="label-radio"
+                ><input type="radio" name="voltaria" value="talvez" />
+                Talvez</label
+              >
+              <label class="label-radio"
+                ><input type="radio" name="voltaria" value="nao" /> Não</label
+              >
+            </div>
           </div>
-        </div>
 
-        <div class="campo-grupo">
-          <label for="sugestao">Tem alguma sugestão de melhoria?</label>
-          <input type="text" id="sugestao" name="sugestao" placeholder="Ex: gostaríamos de ver mais opções veganas..."/>
-        </div>
+          <div class="campo-grupo">
+            <label for="sugestao">Tem alguma sugestão de melhoria?</label>
+            <input
+              type="text"
+              id="sugestao"
+              name="sugestao"
+              placeholder="Ex: gostaríamos de ver mais opções veganas..."
+            />
+          </div>
 
-        <button type="submit" class="btn btn-primary btn-full">Enviar avaliação ⭐</button>
-        <div class="form-sucesso" id="sucesso">⭐ Obrigado pelo feedback! Sua opinião nos ajuda a melhorar todo dia.</div>
-      </form>
+          <button type="submit" class="btn btn-primary btn-full">
+            Enviar avaliação ⭐
+          </button>
+          <div class="form-sucesso" id="sucesso">
+            ⭐ Obrigado pelo feedback! Sua opinião nos ajuda a melhorar todo
+            dia.
+          </div>
+        </form>
+      </div>
+    </main>
 
-    </div>
-  </main>
+    <footer class="rodape">
+      <div class="container rodape-inner">
+        <p class="rodape-copy">
+          © 2024 Padaria do Bairro ·
+          <a href="index.html" style="color: #fac775"
+            >Voltar à página principal</a
+          >
+        </p>
+      </div>
+    </footer>
 
-  <footer class="rodape">
-    <div class="container rodape-inner">
-      <p class="rodape-copy">© 2024 Padaria do Bairro · <a href="index.html" style="color:#FAC775">Voltar à página principal</a></p>
-    </div>
-  </footer>
-
-  <script src="forms.js"></script>
-  <script>
-    // Sistema de estrelas interativo
-    function configurarEstrelas(grupoId, hiddenId) {
-      const estrelas = document.querySelectorAll('#' + grupoId + ' span');
-      const hidden = document.getElementById(hiddenId);
-      estrelas.forEach(function(estrela) {
-        estrela.addEventListener('click', function() {
-          const val = parseInt(this.dataset.val);
-          hidden.value = val;
-          estrelas.forEach(function(e, i) {
-            e.classList.toggle('ativa', i < val);
+    <script src="forms.js"></script>
+    <script>
+      // Sistema de estrelas interativo
+      function configurarEstrelas(grupoId, hiddenId) {
+        const estrelas = document.querySelectorAll("#" + grupoId + " span");
+        const hidden = document.getElementById(hiddenId);
+        estrelas.forEach(function (estrela) {
+          estrela.addEventListener("click", function () {
+            const val = parseInt(this.dataset.val);
+            hidden.value = val;
+            estrelas.forEach(function (e, i) {
+              e.classList.toggle("ativa", i < val);
+            });
+          });
+          estrela.addEventListener("mouseover", function () {
+            const val = parseInt(this.dataset.val);
+            estrelas.forEach(function (e, i) {
+              e.classList.toggle("hover", i < val);
+            });
+          });
+          estrela.addEventListener("mouseout", function () {
+            estrelas.forEach(function (e) {
+              e.classList.remove("hover");
+            });
           });
         });
-        estrela.addEventListener('mouseover', function() {
-          const val = parseInt(this.dataset.val);
-          estrelas.forEach(function(e, i) { e.classList.toggle('hover', i < val); });
-        });
-        estrela.addEventListener('mouseout', function() {
-          estrelas.forEach(function(e) { e.classList.remove('hover'); });
-        });
-      });
-    }
+      }
 
-    configurarEstrelas('estrelasGeral', 'notaGeral');
-    configurarEstrelas('estrelasQualidade', 'notaQualidade');
-    configurarEstrelas('estrelasAtendimento', 'notaAtendimento');
+      configurarEstrelas("estrelasGeral", "notaGeral");
+      configurarEstrelas("estrelasQualidade", "notaQualidade");
+      configurarEstrelas("estrelasAtendimento", "notaAtendimento");
 
-    configurarFormulario('formFeedback', [
-      { id: 'notaGeral',      erro: 'erroNotaGeral',      regra: v => v !== '',  msg: 'Dê uma nota geral.', tipo: 'hidden' },
-      { id: 'notaQualidade',  erro: 'erroNotaQualidade',  regra: v => v !== '',  msg: 'Avalie a qualidade.', tipo: 'hidden' },
-      { id: 'notaAtendimento',erro: 'erroNotaAtendimento',regra: v => v !== '',  msg: 'Avalie o atendimento.', tipo: 'hidden' },
-      { id: 'comentario',     erro: 'erroComentario',     regra: v => v.length >= 10, msg: 'Escreva pelo menos 10 caracteres.' },
-    ]);
-    configurarContador('comentario', 'charCount', 300);
-  </script>
-</body>
+      configurarFormulario("formFeedback", [
+        {
+          id: "notaGeral",
+          erro: "erroNotaGeral",
+          regra: (v) => v !== "",
+          msg: "Dê uma nota geral.",
+          tipo: "hidden",
+        },
+        {
+          id: "notaQualidade",
+          erro: "erroNotaQualidade",
+          regra: (v) => v !== "",
+          msg: "Avalie a qualidade.",
+          tipo: "hidden",
+        },
+        {
+          id: "notaAtendimento",
+          erro: "erroNotaAtendimento",
+          regra: (v) => v !== "",
+          msg: "Avalie o atendimento.",
+          tipo: "hidden",
+        },
+        {
+          id: "comentario",
+          erro: "erroComentario",
+          regra: (v) => v.length >= 10,
+          msg: "Escreva pelo menos 10 caracteres.",
+        },
+      ]);
+      configurarContador("comentario", "charCount", 300);
+    </script>
+  </body>
 </html>
