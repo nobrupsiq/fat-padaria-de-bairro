@@ -988,59 +988,6 @@ h4 {
   border-radius: var(--radius-sm);
 }
 
-.input-com-icone {
-  position: relative;
-}
-
-.input-com-icone input {
-  padding-right: 2.8rem;
-}
-
-.btn-ver-senha {
-  position: absolute;
-  right: 0.4rem;
-  top: 50%;
-  transform: translateY(-50%);
-  border: none;
-  background: transparent;
-  font-size: 1rem;
-  line-height: 1;
-  opacity: 0.75;
-}
-
-.btn-ver-senha:hover {
-  opacity: 1;
-}
-
-.forca-senha {
-  min-height: 14px;
-  font-size: 0.75rem;
-  color: var(--cinza-texto);
-}
-
-.beneficios-bar {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.8rem;
-  margin-bottom: 1.4rem;
-}
-
-.beneficio {
-  background: var(--creme-escuro);
-  border: 1px solid #ecd9b8;
-  border-radius: var(--radius-sm);
-  padding: 0.65rem 0.8rem;
-  font-size: 0.82rem;
-  color: var(--marrom);
-  display: flex;
-  gap: 0.35rem;
-  align-items: center;
-}
-
-.beneficio span {
-  line-height: 1.35;
-}
-
 .form-layout {
   display: grid;
   grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
@@ -1302,15 +1249,6 @@ h4 {
     gap: 2rem;
   }
 
-  .beneficios-bar {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .campo-linha-dupla,
-  .form-layout {
-    grid-template-columns: 1fr;
-  }
-
   .horarios-grid {
     grid-template-columns: 1fr;
   }
@@ -1342,9 +1280,5 @@ h4 {
 
   .form-card {
     padding: 1.35rem;
-  }
-
-  .beneficios-bar {
-    grid-template-columns: 1fr;
   }
 }
