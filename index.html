@@ -1,513 +1,677 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Padaria do Bairro – Fresquinho Todo Dia</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css"/>
-</head>
-<body>
-
-  <!-- ===================== NAVBAR ===================== -->
-  <header class="navbar" id="navbar">
-    <div class="container nav-inner">
-      <a href="#inicio" class="logo">
-        <span class="logo-icon">🍞</span>
-        <div>
-          <span class="logo-name">Padaria do Bairro</span>
-          <span class="logo-since">desde 1987</span>
-        </div>
-      </a>
-      <nav class="nav-links" id="navLinks">
-        <a href="#inicio">Início</a>
-        <a href="#produtos">Produtos</a>
-        <a href="#cardapio">Cardápio</a>
-        <a href="#horarios">Horários</a>
-        <a href="pedidos.html">Pedidos</a>
-        <a href="feedback.html">Feedback</a>
-        <a href="cadastro.html">Cadastro</a>
-        <a href="contato.html">Contato</a>
-      </nav>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-
-  <!-- ===================== HERO ===================== -->
-  <section class="hero" id="inicio">
-    <div class="hero-bg-text">PADARIA</div>
-    <div class="container hero-inner">
-      <div class="hero-content">
-        <span class="hero-tag">Artesanal · Fresquinho · Todo dia</span>
-        <h1 class="hero-title">Feito com<br><em>carinho</em> e<br>farinha.</h1>
-        <p class="hero-desc">Acordamos às 4h da manhã para que você tenha o pão mais fresquinho na mesa do café.</p>
-        <div class="hero-actions">
-          <a href="#produtos" class="btn btn-primary">Ver produtos</a>
-          <a href="#contato" class="btn btn-outline">Fale conosco</a>
-        </div>
-        <div class="hero-stats">
-          <div class="stat"><span class="stat-num">37</span><span class="stat-label">anos de história</span></div>
-          <div class="stat-divider"></div>
-          <div class="stat"><span class="stat-num">+50</span><span class="stat-label">tipos de pão</span></div>
-          <div class="stat-divider"></div>
-          <div class="stat"><span class="stat-num">6h</span><span class="stat-label">abrimos cedo</span></div>
-        </div>
-      </div>
-      <div class="hero-visual">
-        <div class="hero-bread">🥖</div>
-        <div class="hero-circle"></div>
-        <div class="floating-tag tag-1">🧈 manteiga inclusa</div>
-        <div class="floating-tag tag-2">✅ sem conservantes</div>
-      </div>
-    </div>
-    <div class="hero-scroll">↓ role para ver mais</div>
-  </section>
-
-  <!-- ===================== STATUS ABERTO/FECHADO (JS) ===================== -->
-  <div class="status-bar" id="statusBar">
-    <div class="container status-inner">
-      <span class="status-dot" id="statusDot"></span>
-      <span id="statusMsg">Verificando horário...</span>
-    </div>
-  </div>
-
-  <!-- ===================== PRODUTOS ===================== -->
-  <section class="section" id="produtos">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">nossos produtos</span>
-        <h2>Do forno para a sua mesa</h2>
-        <p>Tudo feito na hora, sem conservantes, com ingredientes selecionados.</p>
-      </div>
-
-      <div class="produtos-grid">
-
-        <div class="produto-card" onclick="adicionarPedido(this, 'Pão Francês', 0.75)">
-          <div class="produto-img" style="background:#FAEEDA">🍞</div>
-          <div class="produto-body">
-            <h3>Pão Francês</h3>
-            <p>Crocante por fora, macio por dentro. Assado a cada 2 horas.</p>
-            <div class="produto-footer">
-              <span class="preco">R$ 0,75 / unid.</span>
-              <button class="btn-add">+ Pedir</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="produto-card" onclick="adicionarPedido(this, 'Croissant', 5.50)">
-          <div class="produto-img" style="background:#EAF3DE">🥐</div>
-          <div class="produto-body">
-            <h3>Croissant</h3>
-            <p>Massa folhada com manteiga importada. Puro luxo de manhã cedo.</p>
-            <div class="produto-footer">
-              <span class="preco">R$ 5,50 / unid.</span>
-              <button class="btn-add">+ Pedir</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="produto-card" onclick="adicionarPedido(this, 'Pão de Queijo', 4.00)">
-          <div class="produto-img" style="background:#FAECE7">🧀</div>
-          <div class="produto-body">
-            <h3>Pão de Queijo</h3>
-            <p>Receita mineira tradicional. Queijo canastra e polvilho azedo.</p>
-            <div class="produto-footer">
-              <span class="preco">R$ 4,00 / unid.</span>
-              <button class="btn-add">+ Pedir</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="produto-card" onclick="adicionarPedido(this, 'Bolo de Cenoura', 7.00)">
-          <div class="produto-img" style="background:#FBEAF0">🎂</div>
-          <div class="produto-body">
-            <h3>Bolo de Cenoura</h3>
-            <p>Com cobertura de chocolate belga. Feito todo dia pela Dona Tereza.</p>
-            <div class="produto-footer">
-              <span class="preco">R$ 7,00 / fatia</span>
-              <button class="btn-add">+ Pedir</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="produto-card" onclick="adicionarPedido(this, 'Torta Salgada', 12.00)">
-          <div class="produto-img" style="background:#E6F1FB">🥧</div>
-          <div class="produto-body">
-            <h3>Torta Salgada</h3>
-            <p>Frango com catupiry, palmito ou atum. Massa caseira irresistível.</p>
-            <div class="produto-footer">
-              <span class="preco">R$ 12,00 / fatia</span>
-              <button class="btn-add">+ Pedir</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="produto-card" onclick="adicionarPedido(this, 'Café Especial', 6.00)">
-          <div class="produto-img" style="background:#FAEEDA">☕</div>
-          <div class="produto-body">
-            <h3>Café Especial</h3>
-            <p>Grãos de Minas Gerais, torrados na semana. Expresso ou coado.</p>
-            <div class="produto-footer">
-              <span class="preco">R$ 6,00 / xícara</span>
-              <button class="btn-add">+ Pedir</button>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Carrinho / Pedido -->
-      <div class="pedido-box" id="pedidoBox">
-        <div class="pedido-header">
-          <span>🛒 Seu pedido</span>
-          <button onclick="limparPedido()" class="pedido-limpar">Limpar</button>
-        </div>
-        <ul class="pedido-lista" id="pedidoLista"></ul>
-        <div class="pedido-total">
-          Total: <strong id="pedidoTotal">R$ 0,00</strong>
-        </div>
-        <p class="pedido-aviso">* Pedidos pelo WhatsApp ou balcão. Site apenas para consulta.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== CARDÁPIO (TABELA HTML) ===================== -->
-  <section class="section section-alt" id="cardapio">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">cardápio completo</span>
-        <h2>Tudo que temos pra você</h2>
-        <p>Preços e disponibilidade podem variar. Consulte no balcão.</p>
-      </div>
-
-      <div class="table-wrapper">
-        <table class="cardapio-table">
-          <thead>
-            <tr>
-              <th>Produto</th>
-              <th>Categoria</th>
-              <th>Descrição</th>
-              <th>Preço</th>
-              <th>Disponibilidade</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Pão Francês</strong></td>
-              <td><span class="tag-cat cat-pao">Pão</span></td>
-              <td>Crocante, assado de 2 em 2 horas</td>
-              <td>R$ 0,75/unid.</td>
-              <td><span class="disponivel">✔ Diário</span></td>
-            </tr>
-            <tr>
-              <td><strong>Pão Integral</strong></td>
-              <td><span class="tag-cat cat-pao">Pão</span></td>
-              <td>Farinha integral com sementes de girassol</td>
-              <td>R$ 1,20/unid.</td>
-              <td><span class="disponivel">✔ Diário</span></td>
-            </tr>
-            <tr>
-              <td><strong>Pão de Forma</strong></td>
-              <td><span class="tag-cat cat-pao">Pão</span></td>
-              <td>Macio, fatiado, ideal para torradas</td>
-              <td>R$ 12,00/und.</td>
-              <td><span class="disponivel">✔ Diário</span></td>
-            </tr>
-            <tr>
-              <td><strong>Croissant</strong></td>
-              <td><span class="tag-cat cat-confeit">Confeitaria</span></td>
-              <td>Massa folhada com manteiga importada</td>
-              <td>R$ 5,50/unid.</td>
-              <td><span class="disponivel">✔ Diário</span></td>
-            </tr>
-            <tr>
-              <td><strong>Pão de Queijo</strong></td>
-              <td><span class="tag-cat cat-pao">Pão</span></td>
-              <td>Queijo canastra, polvilho azedo</td>
-              <td>R$ 4,00/unid.</td>
-              <td><span class="disponivel">✔ Diário</span></td>
-            </tr>
-            <tr>
-              <td><strong>Bolo de Cenoura</strong></td>
-              <td><span class="tag-cat cat-confeit">Confeitaria</span></td>
-              <td>Com cobertura de chocolate belga</td>
-              <td>R$ 7,00/fatia</td>
-              <td><span class="disponivel">✔ Diário</span></td>
-            </tr>
-            <tr>
-              <td><strong>Bolo de Laranja</strong></td>
-              <td><span class="tag-cat cat-confeit">Confeitaria</span></td>
-              <td>Massa fofinha com calda cítrica</td>
-              <td>R$ 6,00/fatia</td>
-              <td><span class="limitado">⚡ Limitado</span></td>
-            </tr>
-            <tr>
-              <td><strong>Torta Frango</strong></td>
-              <td><span class="tag-cat cat-salgado">Salgado</span></td>
-              <td>Frango desfiado com catupiry cremoso</td>
-              <td>R$ 12,00/fatia</td>
-              <td><span class="disponivel">✔ Diário</span></td>
-            </tr>
-            <tr>
-              <td><strong>Torta Palmito</strong></td>
-              <td><span class="tag-cat cat-salgado">Salgado</span></td>
-              <td>Palmito pupunha com cream cheese</td>
-              <td>R$ 13,00/fatia</td>
-              <td><span class="limitado">⚡ Limitado</span></td>
-            </tr>
-            <tr>
-              <td><strong>Coxinha</strong></td>
-              <td><span class="tag-cat cat-salgado">Salgado</span></td>
-              <td>Massa crocante, frango c/ requeijão</td>
-              <td>R$ 5,00/unid.</td>
-              <td><span class="disponivel">✔ Diário</span></td>
-            </tr>
-            <tr>
-              <td><strong>Café Expresso</strong></td>
-              <td><span class="tag-cat cat-bebida">Bebida</span></td>
-              <td>Grãos especiais de Minas Gerais</td>
-              <td>R$ 6,00/xíc.</td>
-              <td><span class="disponivel">✔ Diário</span></td>
-            </tr>
-            <tr>
-              <td><strong>Cappuccino</strong></td>
-              <td><span class="tag-cat cat-bebida">Bebida</span></td>
-              <td>Expresso com leite vaporizado e canela</td>
-              <td>R$ 9,00/xíc.</td>
-              <td><span class="disponivel">✔ Diário</span></td>
-            </tr>
-            <tr>
-              <td><strong>Suco Natural</strong></td>
-              <td><span class="tag-cat cat-bebida">Bebida</span></td>
-              <td>Laranja, limão ou maracujá. Sem açúcar.</td>
-              <td>R$ 8,00/copo</td>
-              <td><span class="disponivel">✔ Diário</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== HORÁRIOS ===================== -->
-  <section class="section" id="horarios">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">quando estamos aqui</span>
-        <h2>Horários de funcionamento</h2>
-        <p>Abertos inclusive nos feriados. Porque pão fresco não tira folga.</p>
-      </div>
-      <div class="horarios-grid">
-        <div class="horario-card hc-destaque">
-          <div class="horario-icon">☀️</div>
-          <h3>Segunda a Sexta</h3>
-          <p class="horario-hora">06:00 – 20:00</p>
-          <span class="horario-badge">horário completo</span>
-        </div>
-        <div class="horario-card">
-          <div class="horario-icon">🎉</div>
-          <h3>Sábado</h3>
-          <p class="horario-hora">06:00 – 18:00</p>
-          <span class="horario-badge">horário reduzido</span>
-        </div>
-        <div class="horario-card">
-          <div class="horario-icon">😴</div>
-          <h3>Domingo e Feriados</h3>
-          <p class="horario-hora">06:00 – 13:00</p>
-          <span class="horario-badge">manhã somente</span>
-        </div>
-      </div>
-      <div class="horario-nota">
-        <span>⚡</span>
-        <p>Nosso pão francês sai quentinho às <strong>06h, 08h, 10h, 12h, 14h e 16h</strong>. Chegue cedo para garantir o seu!</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== SOBRE ===================== -->
-  <section class="section section-alt section-sobre">
-    <div class="container sobre-inner">
-      <div class="sobre-visual">
-        <div class="sobre-emoji">👨‍🍳</div>
-        <div class="sobre-years">37<span>anos</span></div>
-      </div>
-      <div class="sobre-texto">
-        <span class="section-tag">nossa história</span>
-        <h2>Uma padaria de bairro de verdade</h2>
-        <p>Fundada em 1987 pelo Seu Manoel e Dona Tereza, a Padaria do Bairro nasceu da necessidade de trazer pão fresco e acessível para a comunidade. Hoje, a família já está na terceira geração, mas a receita do pão francês continua a mesma.</p>
-        <p>Nenhum conservante. Nenhum congelado. Tudo feito na hora, com amor e muito fermento natural.</p>
-        <a href="#contato" class="btn btn-primary" style="margin-top:1.5rem; display:inline-block;">Fale com a gente</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== CONTATO + FORMULÁRIO ===================== -->
-  <section class="section" id="contato">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">fale com a gente</span>
-        <h2>Contato & Encomendas</h2>
-        <p>Bolos, tortas e salgados para eventos — orçamento sem compromisso!</p>
-      </div>
-
-      <div class="contato-wrapper">
-
-        <div class="contato-info">
-          <div class="info-item">
-            <span class="info-icon">📍</span>
-            <div>
-              <strong>Endereço</strong>
-              <p>Rua das Flores, 123 – Centro<br>Bairro Feliz – CEP 00000-000</p>
-            </div>
-          </div>
-          <div class="info-item">
-            <span class="info-icon">📞</span>
-            <div>
-              <strong>Telefone / WhatsApp</strong>
-              <p>(21) 99999-0000</p>
-            </div>
-          </div>
-          <div class="info-item">
-            <span class="info-icon">✉️</span>
-            <div>
-              <strong>E-mail</strong>
-              <p>contato@padariadobairro.com.br</p>
-            </div>
-          </div>
-          <div class="info-item">
-            <span class="info-icon">📸</span>
-            <div>
-              <strong>Instagram</strong>
-              <p>@padariadobairro</p>
-            </div>
-          </div>
-          <div class="mapa-placeholder">
-            <span>🗺️</span>
-            <p>Ver no Google Maps</p>
-          </div>
-        </div>
-
-        <!-- Formulário de contato -->
-        <form class="contato-form" id="contatoForm" novalidate>
-          <h3>Envie uma mensagem</h3>
-
-          <div class="campo-grupo">
-            <label for="nome">Nome completo *</label>
-            <input type="text" id="nome" name="nome" placeholder="Seu nome aqui" />
-            <span class="erro" id="erroNome"></span>
-          </div>
-
-          <div class="campo-grupo">
-            <label for="email">E-mail *</label>
-            <input type="email" id="email" name="email" placeholder="seu@email.com" />
-            <span class="erro" id="erroEmail"></span>
-          </div>
-
-          <div class="campo-grupo">
-            <label for="telefone">Telefone / WhatsApp</label>
-            <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" />
-          </div>
-
-          <div class="campo-grupo">
-            <label for="assunto">Assunto *</label>
-            <select id="assunto" name="assunto">
-              <option value="">Selecione um assunto...</option>
-              <option value="encomenda">Encomenda de bolo/torta</option>
-              <option value="salgados">Salgados para evento</option>
-              <option value="duvida">Dúvida geral</option>
-              <option value="elogio">Elogio ❤️</option>
-              <option value="sugestao">Sugestão</option>
-            </select>
-            <span class="erro" id="erroAssunto"></span>
-          </div>
-
-          <div class="campo-grupo">
-            <label for="mensagem">Mensagem *</label>
-            <textarea id="mensagem" name="mensagem" rows="4" placeholder="Conte o que você precisa..."></textarea>
-            <span class="erro" id="erroMensagem"></span>
-            <span class="char-count" id="charCount">0 / 500 caracteres</span>
-          </div>
-
-          <button type="submit" class="btn btn-primary btn-full" id="btnEnviar">
-            Enviar mensagem 📨
-          </button>
-
-          <div class="form-sucesso" id="formSucesso">
-            ✅ Mensagem enviada! Retornamos em até 24 horas. Obrigado!
-          </div>
-        </form>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================== RODAPÉ ===================== -->
-  <footer class="rodape">
-    <div class="container rodape-inner">
-      <div class="rodape-logo">
-        <span style="font-size:2rem">🍞</span>
-        <div>
-          <span class="logo-name" style="color:#FAC775">Padaria do Bairro</span>
-          <span class="logo-since" style="color:#888">desde 1987</span>
-        </div>
-      </div>
-      <div class="rodape-links">
-        <a href="#inicio">Início</a>
-        <a href="#produtos">Produtos</a>
-        <a href="#cardapio">Cardápio</a>
-        <a href="#horarios">Horários</a>
-        <a href="#contato">Contato</a>
-      </div>
-      <p class="rodape-copy">© 2024 Padaria do Bairro. Feito com 🍞 e muito amor.</p>
-    </div>
-  </footer>
-
-  <!-- ===================== ACESSO RÁPIDO AOS FORMULÁRIOS ===================== -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">nossas páginas</span>
-        <h2>O que você precisa?</h2>
-        <p>Acesse rapidamente qualquer serviço da padaria.</p>
-      </div>
-      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap:1.5rem;">
-        <a href="pedidos.html" style="text-decoration:none">
-          <div class="produto-card" style="text-align:center; padding:2rem 1.5rem;">
-            <div style="font-size:3rem; margin-bottom:1rem">🛒</div>
-            <h3 style="font-family:'Playfair Display',serif; color:var(--marrom); margin-bottom:0.5rem">Pedidos</h3>
-            <p style="font-size:0.85rem; color:#6B6560">Bolos, tortas e salgados para eventos</p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Padaria do Bairro – Fresquinho Todo Dia</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <!-- ===================== NAVBAR ===================== -->
+    <header class="navbar" id="navbar">
+      <div class="container nav-inner">
+        <a href="#inicio" class="logo">
+          <span class="logo-icon">🍞</span>
+          <div>
+            <span class="logo-name">Padaria do Bairro</span>
+            <span class="logo-since">desde 1987</span>
           </div>
         </a>
-        <a href="feedback.html" style="text-decoration:none">
-          <div class="produto-card" style="text-align:center; padding:2rem 1.5rem;">
-            <div style="font-size:3rem; margin-bottom:1rem">⭐</div>
-            <h3 style="font-family:'Playfair Display',serif; color:var(--marrom); margin-bottom:0.5rem">Feedback</h3>
-            <p style="font-size:0.85rem; color:#6B6560">Sua opinião nos ajuda a melhorar</p>
+        <nav class="nav-links" id="navLinks">
+          <a href="#inicio">Início</a>
+          <a href="#produtos">Produtos</a>
+          <a href="#cardapio">Cardápio</a>
+          <a href="#horarios">Horários</a>
+          <a href="pedidos.html">Pedidos</a>
+          <a href="feedback.html">Feedback</a>
+          <a href="cadastro.html">Cadastro</a>
+          <a href="contato.html">Contato</a>
+        </nav>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="inicio">
+      <div class="hero-bg-text">PADARIA</div>
+      <div class="container hero-inner">
+        <div class="hero-content">
+          <span class="hero-tag">Artesanal · Fresquinho · Todo dia</span>
+          <h1 class="hero-title">
+            Feito com<br /><em>carinho</em> e<br />farinha.
+          </h1>
+          <p class="hero-desc">
+            Acordamos às 4h da manhã para que você tenha o pão mais fresquinho
+            na mesa do café.
+          </p>
+          <div class="hero-actions">
+            <a href="#produtos" class="btn btn-primary">Ver produtos</a>
+            <a href="#contato" class="btn btn-outline">Fale conosco</a>
           </div>
-        </a>
-        <a href="cadastro.html" style="text-decoration:none">
-          <div class="produto-card" style="text-align:center; padding:2rem 1.5rem;">
-            <div style="font-size:3rem; margin-bottom:1rem">🎂</div>
-            <h3 style="font-family:'Playfair Display',serif; color:var(--marrom); margin-bottom:0.5rem">Clube Fidelidade</h3>
-            <p style="font-size:0.85rem; color:#6B6560">Cadastre-se e ganhe descontos exclusivos</p>
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="stat-num">37</span
+              ><span class="stat-label">anos de história</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+              <span class="stat-num">+50</span
+              ><span class="stat-label">tipos de pão</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat">
+              <span class="stat-num">6h</span
+              ><span class="stat-label">abrimos cedo</span>
+            </div>
           </div>
-        </a>
-        <a href="contato.html" style="text-decoration:none">
-          <div class="produto-card" style="text-align:center; padding:2rem 1.5rem;">
-            <div style="font-size:3rem; margin-bottom:1rem">✉️</div>
-            <h3 style="font-family:'Playfair Display',serif; color:var(--marrom); margin-bottom:0.5rem">Contato</h3>
-            <p style="font-size:0.85rem; color:#6B6560">Dúvidas, sugestões ou só um oi</p>
-          </div>
-        </a>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-bread">🥖</div>
+          <div class="hero-circle"></div>
+          <div class="floating-tag tag-1">🧈 manteiga inclusa</div>
+          <div class="floating-tag tag-2">✅ sem conservantes</div>
+        </div>
+      </div>
+      <div class="hero-scroll">↓ role para ver mais</div>
+    </section>
+
+    <!-- ===================== STATUS ABERTO/FECHADO (JS) ===================== -->
+    <div class="status-bar" id="statusBar">
+      <div class="container status-inner">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statusMsg">Verificando horário...</span>
       </div>
     </div>
-  </section>
 
-  <!-- Botão voltar ao topo -->
-  <button class="topo-btn" id="topoBtn" onclick="voltarTopo()" aria-label="Voltar ao topo">↑</button>
+    <!-- ===================== PRODUTOS ===================== -->
+    <section class="section" id="produtos">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">nossos produtos</span>
+          <h2>Do forno para a sua mesa</h2>
+          <p>
+            Tudo feito na hora, sem conservantes, com ingredientes selecionados.
+          </p>
+        </div>
 
-  <script src="app.js"></script>
-</body>
+        <div class="produtos-grid">
+          <div
+            class="produto-card"
+            onclick="adicionarPedido(this, 'Pão Francês', 0.75)"
+          >
+            <div class="produto-img" style="background: #faeeda">🍞</div>
+            <div class="produto-body">
+              <h3>Pão Francês</h3>
+              <p>Crocante por fora, macio por dentro. Assado a cada 2 horas.</p>
+              <div class="produto-footer">
+                <span class="preco">R$ 0,75 / unid.</span>
+                <button class="btn-add">+ Pedir</button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="produto-card"
+            onclick="adicionarPedido(this, 'Croissant', 5.5)"
+          >
+            <div class="produto-img" style="background: #eaf3de">🥐</div>
+            <div class="produto-body">
+              <h3>Croissant</h3>
+              <p>
+                Massa folhada com manteiga importada. Puro luxo de manhã cedo.
+              </p>
+              <div class="produto-footer">
+                <span class="preco">R$ 5,50 / unid.</span>
+                <button class="btn-add">+ Pedir</button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="produto-card"
+            onclick="adicionarPedido(this, 'Pão de Queijo', 4.0)"
+          >
+            <div class="produto-img" style="background: #faece7">🧀</div>
+            <div class="produto-body">
+              <h3>Pão de Queijo</h3>
+              <p>
+                Receita mineira tradicional. Queijo canastra e polvilho azedo.
+              </p>
+              <div class="produto-footer">
+                <span class="preco">R$ 4,00 / unid.</span>
+                <button class="btn-add">+ Pedir</button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="produto-card"
+            onclick="adicionarPedido(this, 'Bolo de Cenoura', 7.0)"
+          >
+            <div class="produto-img" style="background: #fbeaf0">🎂</div>
+            <div class="produto-body">
+              <h3>Bolo de Cenoura</h3>
+              <p>
+                Com cobertura de chocolate belga. Feito todo dia pela Dona
+                Tereza.
+              </p>
+              <div class="produto-footer">
+                <span class="preco">R$ 7,00 / fatia</span>
+                <button class="btn-add">+ Pedir</button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="produto-card"
+            onclick="adicionarPedido(this, 'Torta Salgada', 12.0)"
+          >
+            <div class="produto-img" style="background: #e6f1fb">🥧</div>
+            <div class="produto-body">
+              <h3>Torta Salgada</h3>
+              <p>
+                Frango com catupiry, palmito ou atum. Massa caseira
+                irresistível.
+              </p>
+              <div class="produto-footer">
+                <span class="preco">R$ 12,00 / fatia</span>
+                <button class="btn-add">+ Pedir</button>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="produto-card"
+            onclick="adicionarPedido(this, 'Café Especial', 6.0)"
+          >
+            <div class="produto-img" style="background: #faeeda">☕</div>
+            <div class="produto-body">
+              <h3>Café Especial</h3>
+              <p>
+                Grãos de Minas Gerais, torrados na semana. Expresso ou coado.
+              </p>
+              <div class="produto-footer">
+                <span class="preco">R$ 6,00 / xícara</span>
+                <button class="btn-add">+ Pedir</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Carrinho / Pedido -->
+        <div class="pedido-box" id="pedidoBox">
+          <div class="pedido-header">
+            <span>🛒 Seu pedido</span>
+            <button onclick="limparPedido()" class="pedido-limpar">
+              Limpar
+            </button>
+          </div>
+          <ul class="pedido-lista" id="pedidoLista"></ul>
+          <div class="pedido-total">
+            Total: <strong id="pedidoTotal">R$ 0,00</strong>
+          </div>
+          <p class="pedido-aviso">
+            * Pedidos pelo WhatsApp ou balcão. Site apenas para consulta.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CARDÁPIO (TABELA HTML) ===================== -->
+    <section class="section section-alt" id="cardapio">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">cardápio completo</span>
+          <h2>Tudo que temos pra você</h2>
+          <p>Preços e disponibilidade podem variar. Consulte no balcão.</p>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="cardapio-table">
+            <thead>
+              <tr>
+                <th>Produto</th>
+                <th>Categoria</th>
+                <th>Descrição</th>
+                <th>Preço</th>
+                <th>Disponibilidade</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Pão Francês</strong></td>
+                <td><span class="tag-cat cat-pao">Pão</span></td>
+                <td>Crocante, assado de 2 em 2 horas</td>
+                <td>R$ 0,75/unid.</td>
+                <td><span class="disponivel">✔ Diário</span></td>
+              </tr>
+              <tr>
+                <td><strong>Pão Integral</strong></td>
+                <td><span class="tag-cat cat-pao">Pão</span></td>
+                <td>Farinha integral com sementes de girassol</td>
+                <td>R$ 1,20/unid.</td>
+                <td><span class="disponivel">✔ Diário</span></td>
+              </tr>
+              <tr>
+                <td><strong>Pão de Forma</strong></td>
+                <td><span class="tag-cat cat-pao">Pão</span></td>
+                <td>Macio, fatiado, ideal para torradas</td>
+                <td>R$ 12,00/und.</td>
+                <td><span class="disponivel">✔ Diário</span></td>
+              </tr>
+              <tr>
+                <td><strong>Croissant</strong></td>
+                <td><span class="tag-cat cat-confeit">Confeitaria</span></td>
+                <td>Massa folhada com manteiga importada</td>
+                <td>R$ 5,50/unid.</td>
+                <td><span class="disponivel">✔ Diário</span></td>
+              </tr>
+              <tr>
+                <td><strong>Pão de Queijo</strong></td>
+                <td><span class="tag-cat cat-pao">Pão</span></td>
+                <td>Queijo canastra, polvilho azedo</td>
+                <td>R$ 4,00/unid.</td>
+                <td><span class="disponivel">✔ Diário</span></td>
+              </tr>
+              <tr>
+                <td><strong>Bolo de Cenoura</strong></td>
+                <td><span class="tag-cat cat-confeit">Confeitaria</span></td>
+                <td>Com cobertura de chocolate belga</td>
+                <td>R$ 7,00/fatia</td>
+                <td><span class="disponivel">✔ Diário</span></td>
+              </tr>
+              <tr>
+                <td><strong>Bolo de Laranja</strong></td>
+                <td><span class="tag-cat cat-confeit">Confeitaria</span></td>
+                <td>Massa fofinha com calda cítrica</td>
+                <td>R$ 6,00/fatia</td>
+                <td><span class="limitado">⚡ Limitado</span></td>
+              </tr>
+              <tr>
+                <td><strong>Torta Frango</strong></td>
+                <td><span class="tag-cat cat-salgado">Salgado</span></td>
+                <td>Frango desfiado com catupiry cremoso</td>
+                <td>R$ 12,00/fatia</td>
+                <td><span class="disponivel">✔ Diário</span></td>
+              </tr>
+              <tr>
+                <td><strong>Torta Palmito</strong></td>
+                <td><span class="tag-cat cat-salgado">Salgado</span></td>
+                <td>Palmito pupunha com cream cheese</td>
+                <td>R$ 13,00/fatia</td>
+                <td><span class="limitado">⚡ Limitado</span></td>
+              </tr>
+              <tr>
+                <td><strong>Coxinha</strong></td>
+                <td><span class="tag-cat cat-salgado">Salgado</span></td>
+                <td>Massa crocante, frango c/ requeijão</td>
+                <td>R$ 5,00/unid.</td>
+                <td><span class="disponivel">✔ Diário</span></td>
+              </tr>
+              <tr>
+                <td><strong>Café Expresso</strong></td>
+                <td><span class="tag-cat cat-bebida">Bebida</span></td>
+                <td>Grãos especiais de Minas Gerais</td>
+                <td>R$ 6,00/xíc.</td>
+                <td><span class="disponivel">✔ Diário</span></td>
+              </tr>
+              <tr>
+                <td><strong>Cappuccino</strong></td>
+                <td><span class="tag-cat cat-bebida">Bebida</span></td>
+                <td>Expresso com leite vaporizado e canela</td>
+                <td>R$ 9,00/xíc.</td>
+                <td><span class="disponivel">✔ Diário</span></td>
+              </tr>
+              <tr>
+                <td><strong>Suco Natural</strong></td>
+                <td><span class="tag-cat cat-bebida">Bebida</span></td>
+                <td>Laranja, limão ou maracujá. Sem açúcar.</td>
+                <td>R$ 8,00/copo</td>
+                <td><span class="disponivel">✔ Diário</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== HORÁRIOS ===================== -->
+    <section class="section" id="horarios">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">quando estamos aqui</span>
+          <h2>Horários de funcionamento</h2>
+          <p>
+            Abertos inclusive nos feriados. Porque pão fresco não tira folga.
+          </p>
+        </div>
+        <div class="horarios-grid">
+          <div class="horario-card hc-destaque">
+            <div class="horario-icon">☀️</div>
+            <h3>Segunda a Sexta</h3>
+            <p class="horario-hora">06:00 – 20:00</p>
+            <span class="horario-badge">horário completo</span>
+          </div>
+          <div class="horario-card">
+            <div class="horario-icon">🎉</div>
+            <h3>Sábado</h3>
+            <p class="horario-hora">06:00 – 18:00</p>
+            <span class="horario-badge">horário reduzido</span>
+          </div>
+          <div class="horario-card">
+            <div class="horario-icon">😴</div>
+            <h3>Domingo e Feriados</h3>
+            <p class="horario-hora">06:00 – 13:00</p>
+            <span class="horario-badge">manhã somente</span>
+          </div>
+        </div>
+        <div class="horario-nota">
+          <span>⚡</span>
+          <p>
+            Nosso pão francês sai quentinho às
+            <strong>06h, 08h, 10h, 12h, 14h e 16h</strong>. Chegue cedo para
+            garantir o seu!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SOBRE ===================== -->
+    <section class="section section-alt section-sobre">
+      <div class="container sobre-inner">
+        <div class="sobre-visual">
+          <div class="sobre-emoji">👨‍🍳</div>
+          <div class="sobre-years">37<span>anos</span></div>
+        </div>
+        <div class="sobre-texto">
+          <span class="section-tag">nossa história</span>
+          <h2>Uma padaria de bairro de verdade</h2>
+          <p>
+            Fundada em 1987 pelo Seu Manoel e Dona Tereza, a Padaria do Bairro
+            nasceu da necessidade de trazer pão fresco e acessível para a
+            comunidade. Hoje, a família já está na terceira geração, mas a
+            receita do pão francês continua a mesma.
+          </p>
+          <p>
+            Nenhum conservante. Nenhum congelado. Tudo feito na hora, com amor e
+            muito fermento natural.
+          </p>
+          <a
+            href="#contato"
+            class="btn btn-primary"
+            style="margin-top: 1.5rem; display: inline-block"
+            >Fale com a gente</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTATO + FORMULÁRIO ===================== -->
+    <section class="section" id="contato">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">fale com a gente</span>
+          <h2>Contato & Encomendas</h2>
+          <p>
+            Bolos, tortas e salgados para eventos — orçamento sem compromisso!
+          </p>
+        </div>
+
+        <div class="contato-wrapper">
+          <div class="contato-info">
+            <div class="info-item">
+              <span class="info-icon">📍</span>
+              <div>
+                <strong>Endereço</strong>
+                <p>
+                  Rua das Flores, 123 – Centro<br />Bairro Feliz – CEP 00000-000
+                </p>
+              </div>
+            </div>
+            <div class="info-item">
+              <span class="info-icon">📞</span>
+              <div>
+                <strong>Telefone / WhatsApp</strong>
+                <p>(21) 99999-0000</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <span class="info-icon">✉️</span>
+              <div>
+                <strong>E-mail</strong>
+                <p>contato@padariadobairro.com.br</p>
+              </div>
+            </div>
+            <div class="info-item">
+              <span class="info-icon">📸</span>
+              <div>
+                <strong>Instagram</strong>
+                <p>@padariadobairro</p>
+              </div>
+            </div>
+            <div class="mapa-placeholder">
+              <span>🗺️</span>
+              <p>Ver no Google Maps</p>
+            </div>
+          </div>
+
+          <!-- Formulário de contato -->
+          <form class="contato-form" id="contatoForm" novalidate>
+            <h3>Envie uma mensagem</h3>
+
+            <div class="campo-grupo">
+              <label for="nome">Nome completo *</label>
+              <input
+                type="text"
+                id="nome"
+                name="nome"
+                placeholder="Seu nome aqui"
+              />
+              <span class="erro" id="erroNome"></span>
+            </div>
+
+            <div class="campo-grupo">
+              <label for="email">E-mail *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="seu@email.com"
+              />
+              <span class="erro" id="erroEmail"></span>
+            </div>
+
+            <div class="campo-grupo">
+              <label for="telefone">Telefone / WhatsApp</label>
+              <input
+                type="tel"
+                id="telefone"
+                name="telefone"
+                placeholder="(00) 00000-0000"
+              />
+            </div>
+
+            <div class="campo-grupo">
+              <label for="assunto">Assunto *</label>
+              <select id="assunto" name="assunto">
+                <option value="">Selecione um assunto...</option>
+                <option value="encomenda">Encomenda de bolo/torta</option>
+                <option value="salgados">Salgados para evento</option>
+                <option value="duvida">Dúvida geral</option>
+                <option value="elogio">Elogio ❤️</option>
+                <option value="sugestao">Sugestão</option>
+              </select>
+              <span class="erro" id="erroAssunto"></span>
+            </div>
+
+            <div class="campo-grupo">
+              <label for="mensagem">Mensagem *</label>
+              <textarea
+                id="mensagem"
+                name="mensagem"
+                rows="4"
+                placeholder="Conte o que você precisa..."
+              ></textarea>
+              <span class="erro" id="erroMensagem"></span>
+              <span class="char-count" id="charCount">0 / 500 caracteres</span>
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-primary btn-full"
+              id="btnEnviar"
+            >
+              Enviar mensagem 📨
+            </button>
+
+            <div class="form-sucesso" id="formSucesso">
+              ✅ Mensagem enviada! Retornamos em até 24 horas. Obrigado!
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== RODAPÉ ===================== -->
+    <footer class="rodape">
+      <div class="container rodape-inner">
+        <div class="rodape-logo">
+          <span style="font-size: 2rem">🍞</span>
+          <div>
+            <span class="logo-name" style="color: #fac775"
+              >Padaria do Bairro</span
+            >
+            <span class="logo-since" style="color: #888">desde 1987</span>
+          </div>
+        </div>
+        <div class="rodape-links">
+          <a href="#inicio">Início</a>
+          <a href="#produtos">Produtos</a>
+          <a href="#cardapio">Cardápio</a>
+          <a href="#horarios">Horários</a>
+          <a href="#contato">Contato</a>
+        </div>
+        <p class="rodape-copy">
+          © 2024 Padaria do Bairro. Feito com 🍞 e muito amor.
+        </p>
+      </div>
+    </footer>
+
+    <!-- ===================== ACESSO RÁPIDO AOS FORMULÁRIOS ===================== -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">nossas páginas</span>
+          <h2>O que você precisa?</h2>
+          <p>Acesse rapidamente qualquer serviço da padaria.</p>
+        </div>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+          "
+        >
+          <a href="pedidos.html" style="text-decoration: none">
+            <div
+              class="produto-card"
+              style="text-align: center; padding: 2rem 1.5rem"
+            >
+              <div style="font-size: 3rem; margin-bottom: 1rem">🛒</div>
+              <h3
+                style="
+                  font-family: &quot;Playfair Display&quot;, serif;
+                  color: var(--marrom);
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Pedidos
+              </h3>
+              <p style="font-size: 0.85rem; color: #6b6560">
+                Bolos, tortas e salgados para eventos
+              </p>
+            </div>
+          </a>
+          <a href="feedback.html" style="text-decoration: none">
+            <div
+              class="produto-card"
+              style="text-align: center; padding: 2rem 1.5rem"
+            >
+              <div style="font-size: 3rem; margin-bottom: 1rem">⭐</div>
+              <h3
+                style="
+                  font-family: &quot;Playfair Display&quot;, serif;
+                  color: var(--marrom);
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Feedback
+              </h3>
+              <p style="font-size: 0.85rem; color: #6b6560">
+                Sua opinião nos ajuda a melhorar
+              </p>
+            </div>
+          </a>
+          <a href="cadastro.html" style="text-decoration: none">
+            <div
+              class="produto-card"
+              style="text-align: center; padding: 2rem 1.5rem"
+            >
+              <div style="font-size: 3rem; margin-bottom: 1rem">🎂</div>
+              <h3
+                style="
+                  font-family: &quot;Playfair Display&quot;, serif;
+                  color: var(--marrom);
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Clube Fidelidade
+              </h3>
+              <p style="font-size: 0.85rem; color: #6b6560">
+                Cadastre-se e ganhe descontos exclusivos
+              </p>
+            </div>
+          </a>
+          <a href="contato.html" style="text-decoration: none">
+            <div
+              class="produto-card"
+              style="text-align: center; padding: 2rem 1.5rem"
+            >
+              <div style="font-size: 3rem; margin-bottom: 1rem">✉️</div>
+              <h3
+                style="
+                  font-family: &quot;Playfair Display&quot;, serif;
+                  color: var(--marrom);
+                  margin-bottom: 0.5rem;
+                "
+              >
+                Contato
+              </h3>
+              <p style="font-size: 0.85rem; color: #6b6560">
+                Dúvidas, sugestões ou só um oi
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Botão voltar ao topo -->
+    <button
+      class="topo-btn"
+      id="topoBtn"
+      onclick="voltarTopo()"
+      aria-label="Voltar ao topo"
+    >
+      ↑
+    </button>
+
+    <script src="openroter.js"></script>
+  </body>
 </html>
