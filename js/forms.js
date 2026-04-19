@@ -125,10 +125,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const hamburger = document.getElementById("hamburger");
   const navLinks = document.getElementById("navLinks");
 
-  if (hamburger && navLinks) {
+  if (hamburger && navLinks && !hamburger.dataset.menuBound) {
+    hamburger.dataset.menuBound = "true";
+
     hamburger.addEventListener("click", function () {
       navLinks.classList.toggle("aberto");
     });
+
     navLinks.querySelectorAll("a").forEach(function (link) {
       link.addEventListener("click", function () {
         navLinks.classList.remove("aberto");

@@ -177,16 +177,20 @@ function voltarTopo() {
 const hamburger = document.getElementById("hamburger");
 const navLinks = document.getElementById("navLinks");
 
-hamburger.addEventListener("click", function () {
-  navLinks.classList.toggle("aberto");
-});
+if (hamburger && navLinks && !hamburger.dataset.menuBound) {
+  hamburger.dataset.menuBound = "true";
 
-// Fecha o menu ao clicar em um link
-navLinks.querySelectorAll("a").forEach(function (link) {
-  link.addEventListener("click", function () {
-    navLinks.classList.remove("aberto");
+  hamburger.addEventListener("click", function () {
+    navLinks.classList.toggle("aberto");
   });
-});
+
+  // Fecha o menu ao clicar em um link
+  navLinks.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      navLinks.classList.remove("aberto");
+    });
+  });
+}
 
 // ============================================
 // TEMA 9 — Exibir status (aberto/fechado)
