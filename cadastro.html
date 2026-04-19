@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro – Padaria do Bairro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="forms.css"/>
+</head>
+<body>
+
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🍞</span>
+        <div>
+          <span class="logo-name">Padaria do Bairro</span>
+          <span class="logo-since">desde 1987</span>
+        </div>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Início</a>
+        <a href="pedidos.html">Pedidos</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="cadastro.html" class="nav-ativo">Cadastro</a>
+        <a href="contato.html">Contato</a>
+      </nav>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="form-page">
+    <div class="container">
+
+      <div class="form-page-header">
+        <a href="index.html" class="btn-voltar">← Voltar ao site</a>
+        <span class="section-tag">cliente fidelidade</span>
+        <h1>Cadastro de Cliente</h1>
+        <p>Faça parte do nosso clube fidelidade e ganhe descontos e promoções exclusivas!</p>
+      </div>
+
+      <div class="beneficios-bar">
+        <div class="beneficio">🎂 <span>Bolo grátis no aniversário</span></div>
+        <div class="beneficio">🏷️ <span>10% de desconto todo mês</span></div>
+        <div class="beneficio">📲 <span>Promoções via WhatsApp</span></div>
+        <div class="beneficio">⭐ <span>Pontos a cada compra</span></div>
+      </div>
+
+      <form class="form-card form-card-wide" id="formCadastro" novalidate>
+
+        <div class="form-section-title">👤 Dados pessoais</div>
+
+        <div class="campo-linha-dupla">
+          <div class="campo-grupo">
+            <label for="nome">Nome completo *</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required/>
+            <span class="erro" id="erroNome"></span>
+          </div>
+          <div class="campo-grupo">
+            <label for="sobrenome">Sobrenome *</label>
+            <input type="text" id="sobrenome" name="sobrenome" placeholder="Seu sobrenome" required/>
+            <span class="erro" id="erroSobrenome"></span>
+          </div>
+        </div>
+
+        <div class="campo-linha-dupla">
+          <div class="campo-grupo">
+            <label for="cpf">CPF *</label>
+            <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" maxlength="14" required/>
+            <span class="erro" id="erroCpf"></span>
+          </div>
+          <div class="campo-grupo">
+            <label for="nascimento">Data de nascimento *</label>
+            <input type="date" id="nascimento" name="nascimento" required/>
+            <span class="erro" id="erroNascimento"></span>
+          </div>
+        </div>
+
+        <div class="campo-grupo">
+          <label>Gênero</label>
+          <div class="radio-grupo">
+            <label class="label-radio"><input type="radio" name="genero" value="feminino"/> Feminino</label>
+            <label class="label-radio"><input type="radio" name="genero" value="masculino"/> Masculino</label>
+            <label class="label-radio"><input type="radio" name="genero" value="outro"/> Outro</label>
+            <label class="label-radio"><input type="radio" name="genero" value="prefiro_nao"/> Prefiro não dizer</label>
+          </div>
+        </div>
+
+        <div class="form-section-title" style="margin-top:1.5rem">📬 Contato</div>
+
+        <div class="campo-linha-dupla">
+          <div class="campo-grupo">
+            <label for="email">E-mail *</label>
+            <input type="email" id="email" name="email" placeholder="seu@email.com" required/>
+            <span class="erro" id="erroEmail"></span>
+          </div>
+          <div class="campo-grupo">
+            <label for="telefone">WhatsApp *</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required/>
+            <span class="erro" id="erroTelefone"></span>
+          </div>
+        </div>
+
+        <div class="form-section-title" style="margin-top:1.5rem">🔐 Acesso</div>
+
+        <div class="campo-linha-dupla">
+          <div class="campo-grupo">
+            <label for="senha">Senha *</label>
+            <div class="input-com-icone">
+              <input type="password" id="senha" name="senha" placeholder="Mínimo 8 caracteres" required/>
+              <button type="button" class="btn-ver-senha" onclick="alternarSenha('senha', 'iconeSenha')" id="iconeSenha">👁</button>
+            </div>
+            <div class="forca-senha" id="forcaSenha"></div>
+            <span class="erro" id="erroSenha"></span>
+          </div>
+          <div class="campo-grupo">
+            <label for="confirmarSenha">Confirmar senha *</label>
+            <div class="input-com-icone">
+              <input type="password" id="confirmarSenha" name="confirmarSenha" placeholder="Repita a senha" required/>
+              <button type="button" class="btn-ver-senha" onclick="alternarSenha('confirmarSenha', 'iconeConfirmar')" id="iconeConfirmar">👁</button>
+            </div>
+            <span class="erro" id="erroConfirmarSenha"></span>
+          </div>
+        </div>
+
+        <div class="form-section-title" style="margin-top:1.5rem">🥐 Preferências</div>
+
+        <div class="campo-grupo">
+          <label>O que você mais compra? (marque todos)</label>
+          <div class="check-grupo">
+            <label class="label-check"><input type="checkbox" name="preferencia" value="paes"/> 🍞 Pães</label>
+            <label class="label-check"><input type="checkbox" name="preferencia" value="bolos"/> 🎂 Bolos</label>
+            <label class="label-check"><input type="checkbox" name="preferencia" value="salgados"/> 🥟 Salgados</label>
+            <label class="label-check"><input type="checkbox" name="preferencia" value="cafe"/> ☕ Café e bebidas</label>
+            <label class="label-check"><input type="checkbox" name="preferencia" value="tortas"/> 🥧 Tortas</label>
+          </div>
+        </div>
+
+        <div class="campo-grupo">
+          <label>Como prefere receber novidades?</label>
+          <div class="check-grupo">
+            <label class="label-check"><input type="checkbox" name="notificacao" value="whatsapp"/> 📲 WhatsApp</label>
+            <label class="label-check"><input type="checkbox" name="notificacao" value="email"/> ✉️ E-mail</label>
+            <label class="label-check"><input type="checkbox" name="notificacao" value="nenhum"/> 🔕 Não quero receber</label>
+          </div>
+        </div>
+
+        <div class="campo-grupo campo-checkbox" style="margin-top:1rem">
+          <label class="label-check">
+            <input type="checkbox" id="termos" name="termos" required/>
+            Li e aceito os <a href="#" style="color:var(--dourado)">Termos de Uso</a> e a <a href="#" style="color:var(--dourado)">Política de Privacidade</a>. *
+          </label>
+          <span class="erro" id="erroTermos"></span>
+        </div>
+
+        <div class="campo-grupo campo-checkbox">
+          <label class="label-check">
+            <input type="checkbox" id="newsletter" name="newsletter"/>
+            Quero receber promoções e novidades da Padaria do Bairro.
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full">Criar minha conta 🎉</button>
+        <div class="form-sucesso" id="sucesso">🎉 Cadastro realizado! Bem-vindo(a) ao clube fidelidade da Padaria do Bairro!</div>
+      </form>
+
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <div class="container rodape-inner">
+      <p class="rodape-copy">© 2024 Padaria do Bairro · <a href="index.html" style="color:#FAC775">Voltar à página principal</a></p>
+    </div>
+  </footer>
+
+  <script src="forms.js"></script>
+  <script>
+    // Máscara de CPF
+    document.getElementById('cpf').addEventListener('input', function() {
+      let v = this.value.replace(/\D/g, '');
+      if (v.length > 11) v = v.substring(0, 11);
+      v = v.replace(/(\d{3})(\d)/, '$1.$2');
+      v = v.replace(/(\d{3})(\d)/, '$1.$2');
+      v = v.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+      this.value = v;
+    });
+
+    // Indicador de força da senha
+    document.getElementById('senha').addEventListener('input', function() {
+      const s = this.value;
+      const div = document.getElementById('forcaSenha');
+      let forca = 0;
+      if (s.length >= 8) forca++;
+      if (/[A-Z]/.test(s)) forca++;
+      if (/[0-9]/.test(s)) forca++;
+      if (/[^A-Za-z0-9]/.test(s)) forca++;
+      const labels = ['', '🔴 Fraca', '🟠 Média', '🟡 Boa', '🟢 Forte'];
+      div.textContent = s.length > 0 ? ('Força: ' + labels[forca]) : '';
+    });
+
+    // Alternar visibilidade da senha
+    function alternarSenha(inputId, btnId) {
+      const input = document.getElementById(inputId);
+      input.type = input.type === 'password' ? 'text' : 'password';
+    }
+
+    configurarFormulario('formCadastro', [
+      { id: 'nome',           erro: 'erroNome',           regra: v => v.length >= 3,   msg: 'Informe seu nome.' },
+      { id: 'sobrenome',      erro: 'erroSobrenome',      regra: v => v.length >= 2,   msg: 'Informe seu sobrenome.' },
+      { id: 'cpf',            erro: 'erroCpf',            regra: v => v.length === 14, msg: 'CPF incompleto (000.000.000-00).' },
+      { id: 'nascimento',     erro: 'erroNascimento',     regra: v => v !== '',        msg: 'Informe sua data de nascimento.' },
+      { id: 'email',          erro: 'erroEmail',          regra: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v), msg: 'E-mail inválido.' },
+      { id: 'telefone',       erro: 'erroTelefone',       regra: v => v.length >= 8,   msg: 'Informe seu WhatsApp.' },
+      { id: 'senha',          erro: 'erroSenha',          regra: v => v.length >= 8,   msg: 'Senha precisa ter no mínimo 8 caracteres.' },
+      { id: 'confirmarSenha', erro: 'erroConfirmarSenha', regra: function(v) {
+          return v === document.getElementById('senha').value;
+        }, msg: 'As senhas não coincidem.' },
+      { id: 'termos', erro: 'erroTermos', regra: v => v === true, msg: 'Você precisa aceitar os termos.', tipo: 'checkbox' },
+    ]);
+  </script>
+</body>
+</html>

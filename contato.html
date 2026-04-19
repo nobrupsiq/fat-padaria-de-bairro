@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contato – Padaria do Bairro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="forms.css"/>
+</head>
+<body>
+
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon">🍞</span>
+        <div>
+          <span class="logo-name">Padaria do Bairro</span>
+          <span class="logo-since">desde 1987</span>
+        </div>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html">Início</a>
+        <a href="pedidos.html">Pedidos</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="cadastro.html">Cadastro</a>
+        <a href="contato.html" class="nav-ativo">Contato</a>
+      </nav>
+      <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main class="form-page">
+    <div class="container">
+
+      <div class="form-page-header">
+        <a href="index.html" class="btn-voltar">← Voltar ao site</a>
+        <span class="section-tag">fale com a gente</span>
+        <h1>Contato</h1>
+        <p>Dúvidas, sugestões ou só quer mandar um oi? Estamos aqui!</p>
+      </div>
+
+      <div class="form-layout">
+        <div class="form-info-lateral">
+          <div class="info-card">
+            <h3>📍 Onde estamos</h3>
+            <p>Rua das Flores, 123<br>Centro – Bairro Feliz</p>
+          </div>
+          <div class="info-card">
+            <h3>📞 Telefone</h3>
+            <p>(21) 99999-0000<br>WhatsApp disponível</p>
+          </div>
+          <div class="info-card">
+            <h3>✉️ E-mail</h3>
+            <p>contato@padariadobairro.com.br</p>
+          </div>
+          <div class="info-card">
+            <h3>🕐 Horários</h3>
+            <p>Seg–Sex: 06h–20h<br>Sáb: 06h–18h<br>Dom/Fer: 06h–13h</p>
+          </div>
+        </div>
+
+        <form class="form-card" id="formContato" novalidate>
+          <div class="campo-grupo">
+            <label for="nome">Nome completo *</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome" required minlength="3"/>
+            <span class="erro" id="erroNome"></span>
+          </div>
+
+          <div class="campo-linha-dupla">
+            <div class="campo-grupo">
+              <label for="email">E-mail *</label>
+              <input type="email" id="email" name="email" placeholder="seu@email.com" required/>
+              <span class="erro" id="erroEmail"></span>
+            </div>
+            <div class="campo-grupo">
+              <label for="telefone">Telefone</label>
+              <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000"/>
+            </div>
+          </div>
+
+          <div class="campo-grupo">
+            <label for="assunto">Assunto *</label>
+            <select id="assunto" name="assunto" required>
+              <option value="">Selecione...</option>
+              <option value="duvida">Dúvida geral</option>
+              <option value="encomenda">Encomenda</option>
+              <option value="elogio">Elogio ❤️</option>
+              <option value="reclamacao">Reclamação</option>
+              <option value="sugestao">Sugestão</option>
+              <option value="outro">Outro</option>
+            </select>
+            <span class="erro" id="erroAssunto"></span>
+          </div>
+
+          <div class="campo-grupo">
+            <label for="mensagem">Mensagem *</label>
+            <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva aqui..." required minlength="10"></textarea>
+            <span class="char-count" id="charCount">0 / 500</span>
+            <span class="erro" id="erroMensagem"></span>
+          </div>
+
+          <div class="campo-grupo campo-checkbox">
+            <label class="label-check">
+              <input type="checkbox" id="lgpd" name="lgpd" required/>
+              Concordo com o uso dos meus dados para resposta a esta mensagem.
+            </label>
+            <span class="erro" id="erroLgpd"></span>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-full">Enviar mensagem 📨</button>
+          <div class="form-sucesso" id="sucesso">✅ Mensagem enviada com sucesso! Retornamos em até 24h.</div>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <div class="container rodape-inner">
+      <p class="rodape-copy">© 2024 Padaria do Bairro · <a href="index.html" style="color:#FAC775">Voltar à página principal</a></p>
+    </div>
+  </footer>
+
+  <script src="forms.js"></script>
+  <script>
+    configurarFormulario('formContato', [
+      { id: 'nome',     erro: 'erroNome',     regra: v => v.length >= 3,    msg: 'Nome precisa ter pelo menos 3 caracteres.' },
+      { id: 'email',    erro: 'erroEmail',    regra: v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v), msg: 'Informe um e-mail válido.' },
+      { id: 'assunto',  erro: 'erroAssunto',  regra: v => v !== '',          msg: 'Selecione um assunto.' },
+      { id: 'mensagem', erro: 'erroMensagem', regra: v => v.length >= 10,    msg: 'Mensagem muito curta (mín. 10 caracteres).' },
+      { id: 'lgpd',     erro: 'erroLgpd',     regra: v => v === true,        msg: 'Você precisa concordar para continuar.', tipo: 'checkbox' },
+    ]);
+    configurarContador('mensagem', 'charCount', 500);
+  </script>
+</body>
+</html>
